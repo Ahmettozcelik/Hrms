@@ -6,4 +6,5 @@ import com.example.hrms.entities.User;
 
 public interface UserRepository extends JpaRepository<User, Integer>{
 
+	
 }
