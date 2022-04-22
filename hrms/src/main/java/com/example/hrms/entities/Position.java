@@ -15,24 +15,26 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="positions")
-@JsonIgnoreProperties({"hibernateLazyInitilaizer","handler","users"})
+@ToString
+@Table(name = "positions")
+@JsonIgnoreProperties({ "hibernateLazyInitilaizer", "handler", "users" })
 public class Position {
 
 	@Id
 	@Column(name = "position_id")
 	private int positionId;
-	
+
 	@Column(name = "position_name")
 	private String positionName;
-	
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "position")
 	private List<User> users;
-	
+
 }

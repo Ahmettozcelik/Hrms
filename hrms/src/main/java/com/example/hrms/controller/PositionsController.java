@@ -21,15 +21,15 @@ public class PositionsController {
 	public PositionsController(PositionService positionService) {
 		this.positionService = positionService;
 	}
-	
+
 	@GetMapping("/positions")
-	public List<Position> findAllPositions(){
+	public List<Position> findAllPositions() {
 		return positionService.findAll();
 	}
-	
+
 	@DeleteMapping
 	public void deletePosition(int positionId) {
 		positionService.deletePositionById(positionId);
 	}
-	
+
 }

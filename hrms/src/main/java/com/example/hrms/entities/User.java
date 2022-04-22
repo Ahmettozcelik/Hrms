@@ -12,50 +12,45 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class User {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
 	private int id;
-	
-	@NotBlank
-	@Column(name = "nationality_id")
+
+	@Column(name = "nationality_id", nullable = false)
 	private Long nationalityId;
-	
-	@NotBlank
-	@Column(name = "first_name")
+
+	@Column(name = "first_name", nullable = false)
 	private String firstName;
-	
-	@NotBlank
-	@Column(name = "last_name")
+
+	@Column(name = "last_name", nullable = false)
 	private String lastName;
-	
-	@NotBlank
-	@Column(name = "date_of_birth")
+
+	@Column(name = "date_of_birth", nullable = false)
 	private LocalDate dateOfBirth;
-	
-	@NotBlank
-	@Column(name = "email")
+
+	@Column(name = "email", nullable = false)
 	private String email;
-	
-	@NotBlank
-	@Column(name = "password")
+
+	@Column(name = "password", nullable = false)
 	private String password;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "position_id")
 	private Position position;

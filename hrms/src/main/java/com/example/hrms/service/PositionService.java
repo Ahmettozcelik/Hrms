@@ -24,7 +24,7 @@ public class PositionService {
 
 	public void deletePositionById(int positionId) {
 		positionRepository.deleteById(positionId);
-		
+
 	}
-	
+
 }

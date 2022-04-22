@@ -24,9 +24,9 @@ public class UsersController {
 	public UsersController(UserService userService) {
 		this.userService = userService;
 	}
-	
+
 	@GetMapping("/users")
-	public List<User> findAllUsers(){
+	public List<User> findAllUsers() {
 		return userService.findAll();
 	}
 
@@ -34,15 +34,15 @@ public class UsersController {
 	public User createUser(@RequestBody User newUser) {
 		return userService.save(newUser);
 	}
-	
+
 	@GetMapping("/users/{id}")
 	public User getOneUser(@PathVariable int id) {
 		return userService.findById(id);
 	}
-	
+
 	@DeleteMapping("/users/{id}")
 	public void deleteUser(int id) {
 		userService.deleteUserById(id);
 	}
-		
+
 }
